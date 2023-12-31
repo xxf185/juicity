@@ -78,10 +78,10 @@ instjuicity(){
     fi
     ${PACKAGE_INSTALL} wget curl sudo unzip
     
-    last_version=$(curl -Ls "https://api.github.com/repos/juicity/juicity/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') || last_version=v$(curl -Ls "https://data.jsdelivr.com/v1/package/resolve/gh/juicity/juicity" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
+    last_version=$(curl -Ls "https://api.github.com/repos/xxf185/juicity/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') || last_version=v$(curl -Ls "https://data.jsdelivr.com/v1/package/resolve/gh/juicity/juicity" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
     tmp_dir=$(mktemp -d)
 
-    wget https://github.com/juicity/juicity/releases/download/$last_version/juicity-linux-$(archAffix).zip -O $tmp_dir/juicity.zip
+    wget https://github.com/xxf185/juicity/releases/download/$last_version/juicity-linux-$(archAffix).zip -O $tmp_dir/juicity.zip
 
     cd $tmp_dir
     unzip juicity.zip
@@ -373,24 +373,15 @@ showconf(){
 
 menu() {
     clear
-    echo "#############################################################"
-    echo -e "#                    ${RED}Juicity 一键安装脚本${PLAIN}                   #"
-    echo -e "# ${GREEN}作者${PLAIN}: MisakaNo の 小破站                                  #"
-    echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.rest                            #"
-    echo -e "# ${GREEN}GitHub 项目${PLAIN}: https://github.com/Misaka-blog               #"
-    echo -e "# ${GREEN}GitLab 项目${PLAIN}: https://gitlab.com/Misaka-blog               #"
-    echo -e "# ${GREEN}Telegram 频道${PLAIN}: https://t.me/misakanocchannel              #"
-    echo -e "# ${GREEN}Telegram 群组${PLAIN}: https://t.me/misakanoc                     #"
-    echo -e "# ${GREEN}YouTube 频道${PLAIN}: https://www.youtube.com/@misaka-blog        #"
-    echo "#############################################################"
+    echo ""
+    echo -e "${YELLOW}----------Juicity 一键安装脚本----------${PLAIN}"
     echo ""
     echo -e " ${GREEN}1.${PLAIN} 安装 Juicity"
-    echo -e " ${GREEN}2.${PLAIN} ${RED}卸载 Juicity${PLAIN}"
-    echo " -------------"
+    echo -e " ${GREEN}2.${PLAIN} 卸载 Juicity"
     echo -e " ${GREEN}3.${PLAIN} 关闭、开启、重启 Juicity"
     echo -e " ${GREEN}4.${PLAIN} 修改 Juicity 配置"
     echo -e " ${GREEN}5.${PLAIN} 显示 Juicity 配置文件"
-    echo " -------------"
+    echo ""
     echo -e " ${GREEN}0.${PLAIN} 退出脚本"
     echo ""
     read -rp "请输入选项 [0-5]: " menuInput
