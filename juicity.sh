@@ -78,7 +78,7 @@ instjuicity(){
     fi
     ${PACKAGE_INSTALL} wget curl sudo unzip
     
-    last_version=$(curl -Ls "https://api.github.com/repos/xxf185/juicity/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') || last_version=v$(curl -Ls "https://data.jsdelivr.com/v1/package/resolve/gh/juicity/juicity" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
+    last_version=$(curl -Ls "https://api.github.com/repos/xxf185/juicity/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') || last_version=v$(curl -Ls "https://data.jsdelivr.com/v1/package/resolve/gh/xxf185/juicity" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')
     tmp_dir=$(mktemp -d)
 
     wget https://github.com/xxf185/juicity/releases/download/$last_version/juicity-linux-$(archAffix).zip -O $tmp_dir/juicity.zip
