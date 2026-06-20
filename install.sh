@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # ============================================================
 #  Juicity 管理脚本
-#  项目地址：https://github.com/Alvin9999-newpac/Juicity-Plus
+#  项目地址：https://github.com/xxf185/juicity
 # ============================================================
 
 set -Eeuo pipefail
@@ -86,7 +86,7 @@ show_menu() {
   echo -e "${BOLD}${CYAN}"
   echo " ================================================"
   echo "   Juicity 管理脚本 v1.1.0"
-  echo "   https://github.com/Alvin9999-newpac/Juicity-Plus"
+  echo "   https://github.com/xxf185/juicity"
   echo -e " ================================================${PLAIN}"
   printf " %-12s ${BC}%s${PLAIN}\n"   "BBR 加速："  "$BBR"
   printf " %-12s ${SC}%s${PLAIN}\n"   "服务状态："  "$STATUS"
@@ -174,14 +174,14 @@ do_install() {
   info "获取最新版本..."
   local TAG
   TAG=$(curl -fsSL --max-time 10 \
-    "https://api.github.com/repos/juicity/juicity/releases/latest" \
+    "https://api.github.com/repos/xxf185/juicity/releases/latest" \
     | grep '"tag_name"' | head -1 | sed 's/.*"\(v[^"]*\)".*/\1/')
   [[ -z "$TAG" ]] && { err "获取版本失败，请检查网络"; press_enter; return; }
   ok "最新版本：${TAG}"
 
   # 下载解压
   local PKG="juicity-linux-${ARCH}.zip"
-  local URL="https://github.com/juicity/juicity/releases/download/${TAG}/${PKG}"
+  local URL="https://github.com/xxf185/juicity/releases/download/${TAG}/${PKG}"
   local TMP; TMP=$(mktemp -d); trap "rm -rf $TMP" RETURN
 
   info "下载 ${PKG}..."
