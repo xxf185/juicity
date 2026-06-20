@@ -127,7 +127,7 @@ _show_config() {
   echo -e " ${BOLD}[分享链接]${PLAIN}"
   local SHARE
   SHARE=$("${INSTALL_DIR}/juicity-server" generate-sharelink -c "$CONFIG_FILE" 2>/dev/null || true)
-  [[ -z "$SHARE" ]] && SHARE="juicity://${UUID}:${PASS}@${IP}:${PORT}?congestion_control=bbr&sni=www.bing.com&allow_insecure=1"
+  [[ -z "$SHARE" ]] && SHARE="juicity://${UUID}:${PASS}@${IP}:${PORT}?congestion_control=bbr&sni=www.bing.com&allow_insecure=1#juicity"
   echo "  ${SHARE}"
 
   echo
@@ -146,11 +146,9 @@ _show_config() {
 EOF
 
   echo
-  echo -e " ${BOLD}[支持的客户端]${PLAIN}"
-  echo   "  官方客户端  : https://github.com/juicity/juicity/releases"
-  echo   "  NekoBox     : https://github.com/MatsuriDayo/NekoBoxForAndroid（Android）"
-  echo   "  NekoRay     : https://github.com/MatsuriDayo/nekoray（Windows/Linux）"
-  echo   "  注意        : Clash Meta / Mihomo 不支持 juicity 协议"
+  echo -e " "
+  echo   "  "
+
 
   echo -e "\n${BOLD}${GREEN} ==============================${PLAIN}\n"
 }
