@@ -127,7 +127,7 @@ _show_config() {
   echo -e " ${BOLD}[分享链接]${PLAIN}"
   local SHARE
   SHARE=$("${INSTALL_DIR}/juicity-server" generate-sharelink -c "$CONFIG_FILE" 2>/dev/null || true)
-  [[ -z "$SHARE" ]] && SHARE="juicity://${UUID}:${PASS}@${IP}:${PORT}?congestion_control=bbr&sni=www.bing.com&allow_insecure=1#juicity"
+  [[ -z "$SHARE" ]] && SHARE="juicity://${UUID}:${PASS}@${IP}:${PORT}?congestion_control=bbr&sni=www.bing.com&allow_insecure=1#"
   echo "  ${SHARE}"
 
   echo
