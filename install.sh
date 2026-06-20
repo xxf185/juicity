@@ -315,7 +315,9 @@ do_logs() {
 # ──────────── 6. 卸载 ────────────
 do_uninstall() {
   clear
+    echo   "  "
   echo -e "${BOLD}${RED}===== 卸载 Juicity =====${PLAIN}\n"
+    echo   " "
   [[ ! -f "${INSTALL_DIR}/juicity-server" ]] && { warn "juicity 未安装"; press_enter; return; }
   read -rp " 确认卸载？[y/N]: " _c
   [[ "${_c,,}" != "y" ]] && { press_enter; return; }
