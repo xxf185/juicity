@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/bin/bash
+
 # ============================================================
 #  Juicity 管理脚本
 #  项目地址：https://github.com/xxf185/juicity
